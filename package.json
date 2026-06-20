@@ -1,0 +1,8 @@
+{
+  "name": "mcp-cli-monorepo",
+  "private": true,
+  "scripts": {
+    "build": "pnpm -C packages/cli build",
+    "test": "pnpm -C packages/cli test"
+  }
+}

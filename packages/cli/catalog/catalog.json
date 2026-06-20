@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "updated": "2026-06-20T00:00:00Z",
+  "servers": [
+    {
+      "name": "mock",
+      "displayName": "Mock Server",
+      "description": "A no-auth mock MCP server for testing",
+      "runtime": "node",
+      "homepage": "https://github.com/modelcontextprotocol/mock",
+      "install": {
+        "command": "npm install -g @anthropic/mcp-mock",
+        "version": "1.0.0"
+      },
+      "start": {
+        "command": "npx @anthropic/mcp-mock",
+        "env": {}
+      },
+      "auth": {
+        "type": "none"
+      }
+    },
+    {
+      "name": "brave-search",
+      "displayName": "Brave Search",
+      "description": "Web search via Brave Search API",
+      "runtime": "node",
+      "homepage": "https://github.com/modelcontextprotocol/brave-search",
+      "install": {
+        "command": "npm install -g @anthropic/mcp-brave-search",
+        "version": "1.2.0"
+      },
+      "start": {
+        "command": "npx @anthropic/mcp-brave-search",
+        "env": {
+          "BRAVE_API_KEY": ""
+        }
+      },
+      "auth": {
+        "type": "api-key",
+        "envVar": "BRAVE_API_KEY"
+      }
+    },
+    {
+      "name": "slack",
+      "displayName": "Slack",
+      "description": "Send and read Slack messages",
+      "runtime": "node",
+      "homepage": "https://github.com/modelcontextprotocol/slack",
+      "install": {
+        "command": "npm install -g @anthropic/mcp-slack",
+        "version": "1.5.0"
+      },
+      "start": {
+        "command": "npx @anthropic/mcp-slack",
+        "env": {}
+      },
+      "auth": {
+        "type": "oauth",
+        "oauthConfig": {
+          "clientId": "",
+          "clientSecret": "",
+          "scopes": ["channels:read", "channels:history", "chat:write"],
+          "authorizationUrl": "https://slack.com/oauth/v2/authorize",
+          "tokenUrl": "https://slack.com/api/oauth.v2.access"
+        }
+      }
+    }
+  ],
+  "registries": [
+    "https://registry.mcp-cli.dev/v1/catalog.json"
+  ]
+}
